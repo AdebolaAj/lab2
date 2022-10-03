@@ -1,15 +1,8 @@
-all: main
+prog1: main.c
+	gcc main.c -o prog1
 
-CC = clang
-override CFLAGS += -g -Wno-everything -pthread -lm
+prog2: main2.c
+	gcc main2.c -o prog2
 
-SRCS = $(shell find . -name '.ccls-cache' -type d -prune -o -type f -name '*.c' -print)
-
-main: $(SRCS)
-	$(CC) $(CFLAGS) $(SRCS) -o "$@"
-
-main-debug: $(SRCS)
-	$(CC) $(CFLAGS) -O0 $(SRCS) -o "$@"
-
-clean:
-	rm -f main main-debug
+prog3: process.c 
+	gcc process.c -o prog3
